@@ -47,14 +47,27 @@ function render() {
     document.querySelector('.save-btn').style.color = '#fff';
 }
 
+function handleKeys(ev) {
+    if (!ev.ctrlKey) return
+    switch (ev.key) {
+        case 's':
+            ev.preventDefault()
+            saveCode()
+            break;
+        case 'd':
+            ev.preventDefault()
+            downloadCode()
+            break;
+        default:
+            break;
+    }
+}
 
-function saveCode(ev, isBtn = false) {
-    if ((ev.key !== 's' || !ev.ctrlKey) && !isBtn) return
+function saveCode() {
     if (isNoChange) {
         setUserMsg('No Changes')
         return
     }
-    ev.preventDefault()
     gCode.html = _getHtmlFromString(document.querySelector('.html').innerText)
     gCode.css = _getHtmlFromString(document.querySelector('.css').innerText)
     localStorage.setItem('code', JSON.stringify(gCode))
@@ -95,8 +108,8 @@ function setUserMsg(msg) {
     setTimeout(() => { elBody.classList.remove('user-msg-open') }, 2000)
 }
 
-function downloadCode(){
-    for (var i = 0; i < 2 ; i++){
+function downloadCode() {
+    for (var i = 0; i < 2; i++) {
         const codeLng = (!i) ? 'html' : 'css'
         const fileName = (!i) ? 'index.html' : 'style.css'
         var element = document.createElement('a');

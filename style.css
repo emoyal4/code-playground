@@ -7,10 +7,9 @@
     --clr5: #627d98;
     --clr6: #829ab1;
     --clr7: #9fb3c8;
-    --clr-green: rgb(93, 223, 93);
+    --clr-brand: rgb(186, 86, 253);
+    --clr-green: #6fc26f;
 }
-
-
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
@@ -82,8 +81,26 @@ header button:hover {
 }
 
 header h1 {
+    position: relative;
     color: #fff;
+    display: flex;
+    flex-direction: column;
     font-size: 20px;
+    margin-left: 20px;
+}
+
+header h1 span:last-child {
+    color: var(--clr-brand);
+}
+
+header h1::before {
+    content: "{";
+    position: absolute;
+    left: -20px;
+    font-size: 1.9em;
+    font-weight: 100;
+    transform: translateY(-7%);
+    color: #fff;
 }
 
 .btn-container {
@@ -116,6 +133,8 @@ main {
     height: 100%;
     padding: 5px;
     color: #fffd;
+    resize: vertical;
+    overflow: auto;
 }
 
 pre {
@@ -177,9 +196,9 @@ pre.html::before {
 
 .user-msg {
     width: 170px;
-    height: 50px;
+    height: 40px;
     border-radius: 10px;
-    background: #fff;
+    background: var(--clr2);
     border: 3px solid var(--clr-green);
     top: 0;
     left: 50%;
@@ -197,8 +216,8 @@ pre.html::before {
 .info-modal {
     position: absolute;
     width: 250px;
-    height: 130px;
-    background: var(--clr2);
+    height: 200px;
+    background: var(--clr3);
     border: 3px solid var(--clr1);
     border-radius: 10px;
     left: 50%;
@@ -214,26 +233,37 @@ pre.html::before {
     transition: transform 0.2s;
 }
 
+.info-modal > h4 {
+    margin: 0 0 10px;
+    align-self: center;
+    font-weight: 200;
+}
+
 .info-modal > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid var(--clr4);
+    padding: 10px 0;
+}
+
+.info-modal > div:last-child {
+    border-bottom:none;
 }
 
 .info-modal p {
     margin: 0;
 }
 
-
-@media screen and (min-width: 700px){
-    main{
+@media screen and (min-width: 700px) {
+    main {
         flex-direction: row;
     }
-    header{
+    header {
         padding: 10px 20px;
     }
-    header h1{
-        font-size: 25px;
+    header h1 {
+        font-size: 18px;
     }
     header button {
         width: 50px;
@@ -242,10 +272,11 @@ pre.html::before {
     .btn-container {
         gap: 20px;
     }
-    .result{
+    .result {
         width: 50vw;
     }
-    .code{
+    .code {
         width: 50vw;
+        resize: horizontal;
     }
 }
