@@ -51,14 +51,14 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 5px;
     z-index: 5;
     box-shadow: 0 0 10px 1px #000a;
 }
 
 header button {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-size: 20px;
     background: #444857;
     color: #fff;
@@ -74,37 +74,37 @@ header button:hover {
 
 header h1 {
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .btn-container {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 main {
     position: absolute;
-    height: calc(100vh - 50px);
+    height: calc(100vh);
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px;
 }
 
 .result {
-    position: fixed;
-    top: 70px;
-    width: 50vw;
-    height: calc(100vh - 70px);
+    width: 100vw;
+    flex-grow: 1;
+    height: 100%;
     overflow: auto;
 }
 
 .code {
-    position: fixed;
     display: flex;
     flex-direction: column;
     background: #0b0c0c;
-    top: 70px;
-    right: 0;
-    width: 50vw;
-    height: calc(100vh - 70px);
+    flex-grow: 1;
+    width: 100vw;
+    height: 100%;
     padding: 5px;
     color: #fffd;
 }
@@ -206,7 +206,7 @@ pre.html::before {
 .info-modal {
     position: absolute;
     width: 250px;
-    height: 200px;
+    height: 130px;
     background: #444857;
     border-radius: 10px;
     left: 50%;
@@ -229,4 +229,30 @@ pre.html::before {
 
 .info-modal p {
     margin: 0;
+}
+
+
+@media screen and (min-width: 700px){
+    main{
+        flex-direction: row;
+    }
+    header{
+        padding: 10px 20px;
+    }
+    header h1{
+        font-size: 25px;
+    }
+    header button {
+        width: 50px;
+        height: 50px;
+    }
+    .btn-container {
+        gap: 20px;
+    }
+    .result{
+        width: 50vw;
+    }
+    .code{
+        width: 50vw;
+    }
 }
