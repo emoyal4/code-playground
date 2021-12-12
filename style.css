@@ -1,6 +1,16 @@
 * {
     box-sizing: border-box;
+    --clr1: #0b1d2e;
+    --clr2: #1f3349;
+    --clr3: #334e68;
+    --clr4: #486581;
+    --clr5: #627d98;
+    --clr6: #829ab1;
+    --clr7: #9fb3c8;
+    --clr-green: rgb(93, 223, 93);
 }
+
+
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
@@ -15,12 +25,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #616577;
+    background: var(--clr4);
     border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #9094a8;
+    background: var(--clr5);
 }
 
 body {
@@ -47,7 +57,7 @@ header {
     top: 0;
     height: 70px;
     width: 100vw;
-    background: #0b0c0c;
+    background: var(--clr1);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,16 +70,15 @@ header button {
     width: 40px;
     height: 40px;
     font-size: 20px;
-    background: #444857;
+    background: var(--clr3);
     color: #fff;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    z-index: 1;
 }
 
 header button:hover {
-    background: #6b6f7e;
+    background: var(--clr4);
 }
 
 header h1 {
@@ -101,7 +110,7 @@ main {
 .code {
     display: flex;
     flex-direction: column;
-    background: #0b0c0c;
+    background: var(--clr1);
     flex-grow: 1;
     width: 100vw;
     height: 100%;
@@ -112,7 +121,7 @@ main {
 pre {
     position: relative;
     overflow: auto;
-    background: #171818;
+    background: var(--clr2);
     padding: 40px 10px 10px;
     font-size: 17px;
     line-height: 1.5em;
@@ -136,7 +145,7 @@ pre::before {
     width: calc(100% - 10px);
     height: 25px;
     color: #fff;
-    background: #fff6;
+    background: var(--clr3);
     top: 0px;
     left: 0px;
     padding-left: 10px;
@@ -161,27 +170,8 @@ pre.html::before {
     content: "html";
 }
 
-.saveBtn {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background: #fff;
-    color: #1d1e22;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 22px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    transition: background 0.3s, transform 0.3s;
-}
-
 .saveBtn:hover {
-    background: rgb(93, 223, 93);
+    background: var(--clr-green);
     transform: scale(1.1);
 }
 
@@ -189,7 +179,8 @@ pre.html::before {
     width: 170px;
     height: 50px;
     border-radius: 10px;
-    background: rgb(255, 255, 255);
+    background: #fff;
+    border: 3px solid var(--clr-green);
     top: 0;
     left: 50%;
     transform: translate(-50%, -200px);
@@ -200,14 +191,15 @@ pre.html::before {
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    color: rgb(36, 173, 93);
+    color: var(--clr-green);
 }
 
 .info-modal {
     position: absolute;
     width: 250px;
     height: 130px;
-    background: #444857;
+    background: var(--clr2);
+    border: 3px solid var(--clr1);
     border-radius: 10px;
     left: 50%;
     top: 50%;
@@ -217,6 +209,7 @@ pre.html::before {
     flex-direction: column;
     justify-content: space-evenly;
     box-shadow: 0 0 10px 1px #0005;
+    z-index: 5;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.2s;
 }
