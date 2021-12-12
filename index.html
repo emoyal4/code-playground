@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body onload="init()" onkeydown="saveCode(event)">
+    <header>
+        <h1 class="logo">Code Playground</h1>
+        <div class="btn-container">
+            <button class="save-btn" onclick="saveCode(event,true)"><i class="fas fa-save"></i></button>
+            <button class="info-btn" onclick="toggleInfoModal()"><i class="fas fa-info"></i></button>
+            <button class="download-btn" onclick="downloadCode()"><i class="fas fa-download"></i></button>
+        </div>
+    </header>
+    <main>
+        <div class="code">
+            <pre class="html" data-code="html" contenteditable onclick="resizeCode(event)"
+                oninput="setFirstChang()"></pre>
+            <pre class="css" data-code="css" contenteditable onclick="resizeCode(event)"
+                oninput="setFirstChang()"></pre>
+        </div>
+        <div class="result"></div>
+        <div class="user-msg"></div>
+        <div class="info-modal">
+            <div>
+                <p>Resize Code</p>
+                <p>Ctrl + click</p>
+            </div>
+            <div>
+                <p>Save</p>
+                <p>Ctrl + s</p>
+            </div>
+        </div>
+    </main>
+    <style class="user-style"></style>
+    <script src="main.js"></script>
+</body>
+
+</html>

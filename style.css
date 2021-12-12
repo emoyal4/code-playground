@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #616577;
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9094a8;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "Open Sans", sans-serif;
+}
+
+body.info-open .info-modal {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+body.info-open .info-btn {
+    color: rgb(102, 175, 199);
+}
+
+body.user-msg-open .user-msg {
+    transform: translate(-50%, 10px);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    height: 70px;
+    width: 100vw;
+    background: #0b0c0c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    z-index: 5;
+    box-shadow: 0 0 10px 1px #000a;
+}
+
+header button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    background: #444857;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+header button:hover {
+    background: #6b6f7e;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 25px;
+}
+
+.btn-container {
+    display: flex;
+    gap: 20px;
+}
+
+main {
+    position: absolute;
+    height: calc(100vh - 50px);
+    width: 100vw;
+}
+
+.result {
+    position: fixed;
+    top: 70px;
+    width: 50vw;
+    height: calc(100vh - 70px);
+    overflow: auto;
+}
+
+.code {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: #0b0c0c;
+    top: 70px;
+    right: 0;
+    width: 50vw;
+    height: calc(100vh - 70px);
+    padding: 5px;
+    color: #fffd;
+}
+
+pre {
+    position: relative;
+    overflow: auto;
+    background: #171818;
+    padding: 40px 10px 10px;
+    font-size: 17px;
+    line-height: 1.5em;
+    outline: none;
+    margin: 0;
+    height: 100px;
+    border-radius: 10px;
+}
+
+pre.html {
+    z-index: 1;
+    margin-bottom: 5px;
+}
+
+pre.open {
+    flex-grow: 1;
+}
+
+pre::before {
+    position: absolute;
+    width: calc(100% - 10px);
+    height: 25px;
+    color: #fff;
+    background: #fff6;
+    top: 0px;
+    left: 0px;
+    padding-left: 10px;
+}
+
+pre::after {
+    content: "< >";
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+pre.open::after {
+    content: "> <";
+}
+
+pre.css::before {
+    content: "css";
+}
+
+pre.html::before {
+    content: "html";
+}
+
+.saveBtn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: #fff;
+    color: #1d1e22;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.saveBtn:hover {
+    background: rgb(93, 223, 93);
+    transform: scale(1.1);
+}
+
+.user-msg {
+    width: 170px;
+    height: 50px;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -200px);
+    position: absolute;
+    z-index: 5;
+    transition: transform 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: rgb(36, 173, 93);
+}
+
+.info-modal {
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    background: #444857;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    padding: 20px;
+    color: #fffc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 0 0 10px 1px #0005;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s;
+}
+
+.info-modal > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-modal p {
+    margin: 0;
+}
