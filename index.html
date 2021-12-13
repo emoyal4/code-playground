@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Playground</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="init()" onkeydown="handleKeys(event)">
@@ -22,19 +22,34 @@
     </header>
     <main>
         <div class="code">
-            <pre class="html open" data-code="html" contenteditable onclick="resizeCode(event)"
-                oninput="setFirstChang()"></pre>
-            <pre class="css open" data-code="css" contenteditable onclick="resizeCode(event)"
-                oninput="setFirstChang()"></pre>
+
+            <div class="html-container open">
+                <div class="code-header" onclick="resizeCode(event)" data-code="html">
+                    <span>html</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <pre class="html" contenteditable oninput="setFirstChang()"></pre>
+            </div>
+
+            <div class="css-container open">
+                <div class="code-header" onclick="resizeCode(event)" data-code="css">
+                    <span>css</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <pre class="css" contenteditable oninput="setFirstChang()"></pre>
+            </div>
+
+            <div class="js-container open">
+                <div class="code-header" onclick="resizeCode(event)" data-code="js">
+                    <span>js</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <pre class="js" contenteditable oninput="setFirstChang()"></pre>
+            </div>
+
         </div>
-        <div class="result"></div>
         <div class="user-msg"></div>
         <div class="info-modal">
-            <h4>Playground Shortkeys</h4>
-            <div>
-                <p>Resize Code</p>
-                <p>Ctrl + Click</p>
-            </div>
             <div>
                 <p>Save</p>
                 <p>Ctrl + S</p>
@@ -44,8 +59,10 @@
                 <p>Ctrl + D</p>
             </div>
         </div>
+        <div class="user-html"></div>
     </main>
-    <style class="user-style"></style>
+    <style class="user-css"></style>
+    <script class="user-js"></script>
     <script src="main.js"></script>
 </body>
 

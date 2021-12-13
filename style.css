@@ -7,7 +7,7 @@
     --clr5: #627d98;
     --clr6: #829ab1;
     --clr7: #9fb3c8;
-    --clr-brand: rgb(186, 86, 253);
+    --clr-brand: rgb(86, 164, 253);
     --clr-green: #6fc26f;
 }
 
@@ -117,7 +117,7 @@ main {
     padding-top: 70px;
 }
 
-.result {
+.user-html {
     width: 100vw;
     flex-grow: 1;
     height: 100%;
@@ -137,57 +137,58 @@ main {
     overflow: auto;
 }
 
+.code > div{
+    height: 25px;
+    position: relative;
+    border-radius: 10px;
+ overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.code > div.open {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.code > div.open .code-header i {
+    transform: scale(1,-1);
+ }
+
+.code > div.open pre {
+   min-height: 100%;
+}
+
+.code-header{
+    position: absolute;
+    cursor: pointer;
+    z-index: 5;
+    background: var(--clr3);
+    width: 100%;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    color: #fff5;
+}
+
+.code-header i{
+    transition: transform 0.25s;
+    pointer-events: none;
+}
+
 pre {
     position: relative;
-    overflow: auto;
     background: var(--clr2);
     padding: 40px 10px 10px;
     font-size: 17px;
     line-height: 1.5em;
     outline: none;
     margin: 0;
-    height: 100px;
-    border-radius: 10px;
+    height: fit-content;
+    min-height: 25px;
 }
 
-pre.html {
-    z-index: 1;
-    margin-bottom: 5px;
-}
-
-pre.open {
-    flex-grow: 1;
-}
-
-pre::before {
-    position: absolute;
-    width: calc(100% - 10px);
-    height: 25px;
-    color: #fff;
-    background: var(--clr3);
-    top: 0px;
-    left: 0px;
-    padding-left: 10px;
-}
-
-pre::after {
-    content: "< >";
-    position: absolute;
-    right: 10px;
-    top: 0px;
-}
-
-pre.open::after {
-    content: "> <";
-}
-
-pre.css::before {
-    content: "css";
-}
-
-pre.html::before {
-    content: "html";
-}
 
 .saveBtn:hover {
     background: var(--clr-green);
@@ -216,7 +217,7 @@ pre.html::before {
 .info-modal {
     position: absolute;
     width: 250px;
-    height: 200px;
+    height: 150px;
     background: var(--clr3);
     border: 3px solid var(--clr1);
     border-radius: 10px;
@@ -231,12 +232,6 @@ pre.html::before {
     z-index: 5;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.2s;
-}
-
-.info-modal > h4 {
-    margin: 0 0 10px;
-    align-self: center;
-    font-weight: 200;
 }
 
 .info-modal > div {
